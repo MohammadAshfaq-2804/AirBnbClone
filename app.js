@@ -90,6 +90,10 @@ app.use("/listing",Listingrouter);
 app.use("/listing/:id/reviews",reviewRouter);
 app.use("/",userRouter);
 
+app.get("/", (req, res) => {
+    res.redirect("/listing");
+});
+
 //for wrong path
 app.all("/*path", (req, res, next) => {
   next(new ExpressError(400, "Page Not Found"));
